@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">examan_mobile</string>
+    <string name="Name_Hotel">Hotel touristiques</string>
+    <string name="Des_Hotel">Les hôtels classés le sont selon les nouvelles normes Atout France</string>
+    <string name="Name_Parc">Parc touristiques</string>
+    <string name="Name_Surface">Surface touristiques</string>
+    <string name="Name_">Parc</string>
+</resources>

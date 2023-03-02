@@ -1,0 +1,85 @@
+package com.example.examan_mobile.adapter;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.examan_mobile.R;
+import com.example.examan_mobile.model.hotel;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+public class Adapter_parc extends RecyclerView.Adapter<Adapter_parc.ViewHolder>{
+
+    ArrayList<hotel> list_centre;
+    public Adapter_parc(ArrayList<hotel> list_centre) {
+        this.list_centre = list_centre;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflate = LayoutInflater.from(parent.getContext());
+        View v = inflate.inflate(R.layout.item_hotel   , parent,false);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        Picasso.get().load(list_centre.get(position).getImage_hotel()).into(holder.img);
+        holder.txt_nom.setText(list_centre.get(position).getNom());
+        holder.txt_des.setText(list_centre.get(position).getDescription());
+        holder.txt_des.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent();
+            }
+        });
+
+    }
+    @Override
+    public int getItemCount() {
+        return list_centre.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+        ImageView img;
+
+        TextView txt_nom;
+        TextView txt_des;
+        TextView txt_map;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            //imageView
+            img =itemView.findViewById(R.id.img);
+            txt_nom =itemView.findViewById(R.id.txt_nom);
+            txt_des =itemView.findViewById(R.id.txt_des);
+            txt_map =itemView.findViewById(R.id.txt_map);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
